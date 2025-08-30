@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>¯\_(ツ)_/¯</title>
+  <style>
+    :root {
+      --blue: #0078d7;         /* Windows 10-like blue */
+      --text: #ffffff;
+      --muted: rgba(255,255,255,.85);
+      --faint: rgba(255,255,255,.7);
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--blue);
+      color: var(--text);
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                   Arial, Roboto, "Noto Sans", "Liberation Sans", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: min(880px, 90vw);
+      text-align: left;
+      line-height: 1.35;
+    }
+
+    .face {
+      font-size: clamp(72px, 18vw, 220px);
+      font-weight: 300;
+      margin: 0 0 .3em 0;
+      letter-spacing: .01em;
+      user-select: none;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4.5vw, 44px);
+      font-weight: 600;
+      margin: 0 0 .6em 0;
+    }
+
+    p {
+      margin: .6em 0 0 0;
+      font-size: clamp(15px, 2.5vw, 18px);
+    }
+
+    .muted { color: var(--muted); }
+    .faint { color: var(--faint); }
+
+    /* subtle “number” line feel */
+    .number {
+      margin-top: .4em;
+      font-family: Consolas, "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .02em;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main" aria-label="Error screen parody">
+    <div class="face">( ._.)</div>
+
+    <h1>
+      I don’t know WHAT<br />
+      the fuck is going on.
+    </h1>
+
+    <p class="muted">Good luck searching for it online though.</p>
+
+    <p class="faint number">
+      Here’s a useless number that Google has no results for. Try Bing. Just kidding.
+    </p>
+  </main>
+</body>
+</html>

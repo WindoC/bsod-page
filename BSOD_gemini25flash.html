@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Screen</title>
+    <style>
+        body {
+            background-color: #0078D7; /* A common Windows blue, slightly adjusted to match the image */
+            color: #FFFFFF;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px; /* Add some padding in case of very small screens */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        .container {
+            max-width: 800px; /* Limit width for better readability */
+        }
+
+        .emoticon {
+            font-size: 150px; /* Larger size for the emoticon */
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .main-message {
+            font-size: 38px;
+            font-weight: 400; /* Regular weight */
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .sub-message {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .useless-number-message {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoticon">
+            (._.)
+        </div>
+        <div class="main-message">
+            I don't know WHAT<br>the fuck is going on.
+        </div>
+        <div class="sub-message">
+            Good luck searching for it online though.
+        </div>
+        <div class="useless-number-message">
+            Here's a useless number that Google has no results for. Try Bing. Just kidding.
+        </div>
+    </div>
+</body>
+</html>

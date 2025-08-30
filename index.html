@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSOD</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        #mainContent {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        #imageContainer {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #bsodImage {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        #pageFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+        
+        #menuButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        #menuButton:hover {
+            background: rgba(255, 255, 255, 0.2);
+            width: 200px;
+        }
+        
+        #menu {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            display: none;
+            z-index: 1001;
+        }
+        
+        #menu.show {
+            display: block;
+        }
+        
+        .menu-item {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 2px 0;
+            border-radius: 3px;
+            transition: background 0.2s;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .menu-item.active {
+            background: rgba(0, 123, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="mainContent">
+        <div id="imageContainer">
+            <img id="bsodImage" src="10-error-windows-10-windows-blue-humor.jpg" alt="BSOD">
+        </div>
+        <iframe id="pageFrame"></iframe>
+    </div>
+    
+    <div id="menuButton"></div>
+    
+    <div id="menu">
+        <div class="menu-item disabled" style="color: #aaa; cursor: default; font-style: italic;">AI Web Generation Results - OpenAI performs best on this simple task</div>
+        <hr style="border: none; border-top: 1px solid #333; margin: 8px 0;">
+        <div class="menu-item" data-page="image">Original image</div>
+        <hr style="border: none; border-top: 1px solid #333; margin: 8px 0;">
+        <div class="menu-item" data-page="BSOD_claudesonnet4.html">Claude Sonnet 4</div>
+        <div class="menu-item" data-page="BSOD_claudecodesonnet4.html">Claude Code</div>
+        <div class="menu-item" data-page="BSOD_gemini25flash.html">Gemini 2.5 Flash</div>
+        <div class="menu-item" data-page="BSOD_gemini25pro.html">Gemini 2.5 Pro</div>
+        <div class="menu-item" data-page="BSOD_openaigpt5.html">OpenAI GPT-5</div>
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+        const imageContainer = document.getElementById('imageContainer');
+        const pageFrame = document.getElementById('pageFrame');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        let menuVisible = false;
+        
+        // Load saved selection
+        const savedPage = localStorage.getItem('selectedPage') || 'image';
+        
+        function showPage(page) {
+            if (page === 'image') {
+                imageContainer.style.display = 'flex';
+                pageFrame.style.display = 'none';
+            } else {
+                imageContainer.style.display = 'none';
+                pageFrame.style.display = 'block';
+                pageFrame.src = page;
+            }
+            
+            // Update active menu item
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.page === page) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Save selection
+            localStorage.setItem('selectedPage', page);
+        }
+        
+        // Toggle menu
+        menuButton.addEventListener('click', () => {
+            menuVisible = !menuVisible;
+            menu.classList.toggle('show', menuVisible);
+        });
+        
+        // Hide menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
+                menuVisible = false;
+                menu.classList.remove('show');
+            }
+        });
+        
+        // Menu item clicks
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                showPage(item.dataset.page);
+                menuVisible = false;
+                menu.classList.remove('show');
+            });
+        });
+        
+        // Load saved page on startup
+        showPage(savedPage);
+    </script>
+</body>
+</html>

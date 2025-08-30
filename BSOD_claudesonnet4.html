@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Screen Error</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0078d4;
+            color: white;
+            font-family: 'Segoe UI Light', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .error-face {
+            font-size: 120px;
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 8px;
+            line-height: 1;
+        }
+
+        .main-message {
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.3;
+            margin-bottom: 80px;
+            max-width: 900px;
+            letter-spacing: 1px;
+        }
+
+        .sub-message {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 800px;
+            opacity: 1;
+        }
+
+        .sub-message p {
+            margin-bottom: 20px;
+        }
+
+        .sub-message p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .error-face {
+                font-size: 100px;
+                margin-bottom: 50px;
+            }
+            
+            .main-message {
+                font-size: 40px;
+                margin-bottom: 60px;
+            }
+            
+            .sub-message {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-face {
+                font-size: 80px;
+                margin-bottom: 40px;
+                letter-spacing: 4px;
+            }
+            
+            .main-message {
+                font-size: 32px;
+                margin-bottom: 50px;
+            }
+            
+            .sub-message {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-face {
+                font-size: 60px;
+                margin-bottom: 30px;
+            }
+            
+            .main-message {
+                font-size: 24px;
+                margin-bottom: 40px;
+            }
+            
+            .sub-message {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-face">( • _ • )</div>
+    
+    <div class="main-message">
+        I don't know WHAT<br>
+        the fuck is going on.
+    </div>
+    
+    <div class="sub-message">
+        <p>Good luck searching for it online though.</p>
+        <p>Here's a useless number that Google has no results for. Try Bing. Just kidding.</p>
+    </div>
+</body>
+</html>
